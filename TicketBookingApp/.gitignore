@@ -1,0 +1,15 @@
+# Ignore Eclipse settings and metadata
+.metadata/
+*.log
+*.tmp
+*.bak
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Build and cache directories
+bin/
+target/
+.gradle/
