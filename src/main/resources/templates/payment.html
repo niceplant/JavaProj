@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment - Show Spot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Payment</h2>
+    <div class="mb-3">
+        <strong>Booking ID:</strong> <span th:text="${booking.id}"></span><br>
+        <strong>Amount:</strong> <span th:text="${booking.show.price}"></span>
+    </div>
+    <form th:action="@{'/bookings/' + ${booking.id} + '/pay'}" method="post">
+        <div class="mb-3">
+            <label for="method" class="form-label">Payment Method</label>
+            <select class="form-select" id="method" name="method" required>
+                <option value="CREDIT_CARD">Credit Card</option>
+                <option value="UPI">UPI</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="transactionId" class="form-label">Transaction ID</label>
+            <input type="text" class="form-control" id="transactionId" name="transactionId" required>
+        </div>
+        <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" required>
+        </div>
+        <button type="submit" class="btn btn-success">Pay Now</button>
+    </form>
+</div>
+</body>
+</html>
